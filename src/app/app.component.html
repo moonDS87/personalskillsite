@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<p>list-skills works!</p>
+<app-navigation-menu></app-navigation-menu>
+<router-outlet></router-outlet>
+<div>
+  <ul *ngFor="let skill of skills; let i = index">
+    <li>
+      {{ skill.name }}: {{ skill.proficiency }} (index {{ i }})
+      <button mat-button color="warn" (click)="onDelete(skill._id)">DELETE</button>
+      <button mat-button color="accent" [routerLink]="['/editSkill', skill._id]">UPDATE</button>
+    </li>
+  </ul>
+</div>

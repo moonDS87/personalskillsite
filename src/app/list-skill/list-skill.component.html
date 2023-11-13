@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<p>list-skill works!</p>
+<!-- list-skill.component.html -->
+
+<!-- Display a heading for the component -->
+<h2>List of Skills</h2>
+
+<!-- Include the navigation menu component -->
+<app-navigation-menu></app-navigation-menu>
+
+<!-- Use a router-outlet to display the content of routed components -->
+<router-outlet></router-outlet>
+
+<!-- Create a container for the skills list -->
+<div>
+  <!-- Use *ngFor to iterate over the skills array and display each skill -->
+  <ul *ngFor="let skill of skills; let i = index">
+    <li>
+      <!-- Display the skill details -->
+      {{ skill.name }}: {{ skill.proficiency }} (index {{ i }})
+
+      <!-- Add buttons for actions like delete and update -->
+      <button mat-button color="warn" (click)="onDelete(skill._id)">DELETE</button>
+      <button mat-button color="accent" [routerLink]="['/editSkill', skill._id]">UPDATE</button>
+    </li>
+  </ul>
+</div>
